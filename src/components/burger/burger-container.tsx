@@ -1,14 +1,13 @@
 import BurgerContent from './burger-content';
 import { connect } from "react-redux";
-interface rootState {
-    food: 5
-}
-const mapDidpatchToProps = (state: rootState) => {
+import IBurgerRootState from '../interfaces/burger-container-root-state';
+
+const mapStateToProps = (state: IBurgerRootState) => {
     return {
-        food: state.food
+        food: state.burgersContent.food
     }
 }
 
-const BurgerContainer = connect(mapDidpatchToProps, {})(BurgerContent);
+const BurgerContainer = connect(mapStateToProps, {})(BurgerContent);
 
 export default BurgerContainer;
