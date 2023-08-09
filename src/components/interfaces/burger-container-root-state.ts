@@ -1,5 +1,7 @@
+import { IBurger } from "../../interfaces/food-interface"
+
 export default interface IBurgerRootState {
-    burgersContent: {
-        food: 5
+    burgersPage: {
+        burgerList: [IBurger]
     }
 }

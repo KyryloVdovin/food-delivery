@@ -1,11 +1,12 @@
 import React from 'react';
 import BurgerItem from './burger-item';
+import { IBurger } from '../../interfaces/food-interface';
 
 interface rootState {
-    food: 5
+    burgerList: [IBurger]
 }
 
-const BurgerContent = ({food}: rootState) => {
+const BurgerContent = ({burgerList}: rootState) => {
     return (
         <div className="catalog_wrap_list">
             <ul className="catalog_list">

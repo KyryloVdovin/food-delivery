@@ -4,12 +4,13 @@ import Header from './components/header/header';
 import Navigation from './components/navigation/navigation';
 import { BrowserRouter, HashRouter, Navigate, Route, Routes, useParams } from "react-router-dom";
 import BurgerContainer from './components/burger/burger-container';
-import { Provider } from 'react-redux';
 import store from './components/redux/redux-store';
-
-function App() {
+// interface IApp {
+//   store: any
+// }
+const App = (props) => {
   return (
-    <Provider store={store}>
+    
       <div className="App">
         <Header />
 
@@ -29,7 +30,6 @@ function App() {
           </Routes>
         </main>
       </div>
-    </Provider>
   );
 }
 
