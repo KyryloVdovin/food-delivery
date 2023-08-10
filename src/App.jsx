@@ -4,6 +4,7 @@ import Header from './components/header/header';
 import Navigation from './components/navigation/navigation';
 import { Route, Routes } from "react-router-dom";
 import BurgerContainer from './components/burger/burger-container';
+import PizzaContainer from './components/pizza/pizza-container';
 
 const App = (props) => {
   return (
@@ -18,7 +19,7 @@ const App = (props) => {
             <Routes>
               {/* <Route exact path='/' element={<Navigate to="/profile" />} /> */}
               <Route path="/Burgers" element={<BurgerContainer />} />
-              <Route path="/Pizza" element={<div>pizza</div>} />
+              <Route path="/Pizza" element={<PizzaContainer />} />
               <Route path="/Desserts" element={<div>desserts</div>} />
               <Route path="/Chiken" element={<div>chiken</div>} />
               <Route path="/Drinks" element={<div>drinks</div>} />

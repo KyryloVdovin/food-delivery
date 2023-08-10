@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react';
-import BurgerItem from './burger-item';
-import { IBurgerContent } from '../../interfaces/food-interface';
-import './burger-content.css';
+import { useEffect } from 'react';
+import BurgerItem from '../burger/burger-item';
+import { IPizzaContent } from '../../interfaces/food-interface';
+import '../burger/burger-content.css';
 
-const BurgerContent = ({ burgerList, catalogTitle, getBurgers }: IBurgerContent) => {
+const PizzaContent = ({ pizzaList, catalogTitle, getPizza }: IPizzaContent) => {
     useEffect(() => {
-        getBurgers();
+        getPizza();
     }, []);
 
-    const foodList = burgerList.map(item => {
+    const foodList = pizzaList.map(item => {
         return <BurgerItem key={item.id} id={item.id} name={item.name} img={item.img}
         price={item.price} weight={item.weight} unit={item.unit}/>
     });
@@ -23,4 +23,4 @@ const BurgerContent = ({ burgerList, catalogTitle, getBurgers }: IBurgerContent)
     )
 }
 
-export default BurgerContent;
+export default PizzaContent;

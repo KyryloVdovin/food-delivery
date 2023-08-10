@@ -1,8 +1,8 @@
 
-import { IBurger } from '../../interfaces/food-interface';
+import { IProduct } from '../../interfaces/food-interface';
 import s from './burger-item.module.css';
 
-const FoodItem = ({ name, img, price, weight, unit }: IBurger) => {
+const ProductItem = ({ name, img, price, weight, unit }: IProduct) => {
     return (
         <li className="catalog_item">
             <article className={s.product}>
@@ -18,11 +18,11 @@ const FoodItem = ({ name, img, price, weight, unit }: IBurger) => {
                 </h3>
                 <p className={s.productWeight}>{weight}{unit}</p>
                 <button className={s.productAdd}>
-                    Добавить
+                    Add
                 </button>
             </article>
         </li>
     )
 }
 
-export default FoodItem;
+export default ProductItem;

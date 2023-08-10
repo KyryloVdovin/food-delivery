@@ -2,7 +2,7 @@ export interface IIngredient {
     id: number,
     name: string
 }
-export interface IBurger {
+export interface IProduct {
     id: number,
     name: string,
     img: string,
@@ -10,6 +10,7 @@ export interface IBurger {
     weight: number,
     unit: string
 }
+
 export interface IProductDetails {
     id: number,
     name: string,
@@ -23,6 +24,12 @@ export interface IProductDetails {
 }
 
 export interface IBurgerContent {
-    burgerList: [IBurger],
-    catalogTitle: string
+    burgerList: [IProduct],
+    catalogTitle: string,
+    getBurgers: () => void
+}
+export interface IPizzaContent {
+    pizzaList: [IProduct],
+    catalogTitle: string,
+    getPizza: () => void
 }
