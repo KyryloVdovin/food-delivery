@@ -2,34 +2,34 @@ import React from 'react';
 import './App.css';
 import Header from './components/header/header';
 import Navigation from './components/navigation/navigation';
-import { BrowserRouter, HashRouter, Navigate, Route, Routes, useParams } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import BurgerContainer from './components/burger/burger-container';
-import store from './components/redux/redux-store';
-// interface IApp {
-//   store: any
-// }
+
 const App = (props) => {
   return (
-    
-      <div className="App">
-        <Header />
 
-        <main>
-          <Navigation />
+    <div className="App">
+      <Header />
 
-          <Routes>
-            {/* <Route exact path='/' element={<Navigate to="/profile" />} /> */}
-            <Route path="/Burgers" element={<BurgerContainer />} />
-            <Route path="/Pizza" element={<div>pizza</div>} />
-            <Route path="/Desserts" element={<div>desserts</div>} />
-            <Route path="/Chiken" element={<div>chiken</div>} />
-            <Route path="/Drinks" element={<div>drinks</div>} />
-            <Route path="/Sandviches" element={<div>sandvich</div>} />
-            <Route path="/Ice-cream" element={<div>ice cream</div>} />
-            <Route path="/Steak" element={<div>steak</div>} />
-          </Routes>
-        </main>
-      </div>
+      <main>
+        <Navigation />
+        <section className='catalog'>
+          <div className='container catalog-container'>
+            <Routes>
+              {/* <Route exact path='/' element={<Navigate to="/profile" />} /> */}
+              <Route path="/Burgers" element={<BurgerContainer />} />
+              <Route path="/Pizza" element={<div>pizza</div>} />
+              <Route path="/Desserts" element={<div>desserts</div>} />
+              <Route path="/Chiken" element={<div>chiken</div>} />
+              <Route path="/Drinks" element={<div>drinks</div>} />
+              <Route path="/Sandviches" element={<div>sandvich</div>} />
+              <Route path="/Ice-cream" element={<div>ice cream</div>} />
+              <Route path="/Steak" element={<div>steak</div>} />
+            </Routes>
+          </div>
+        </section>
+      </main>
+    </div>
   );
 }
 

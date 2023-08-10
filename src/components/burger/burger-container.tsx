@@ -4,7 +4,8 @@ import IBurgerRootState from '../interfaces/burger-container-root-state';
 
 const mapStateToProps = (state: IBurgerRootState) => {
     return {
-        burgerList: state.burgersPage.burgerList
+        burgerList: state.burgersPage.burgerList,
+        catalogTitle: state.burgersPage.catalogTitle
     }
 }
 
