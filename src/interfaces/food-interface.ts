@@ -8,7 +8,9 @@ export interface IProduct {
     img: string,
     price: number,
     weight: number,
-    unit: string
+    unit: string,
+    catalogTitle: string,
+    getProduct: (id: number) => void
 }
 
 export interface IProductDetails {
@@ -16,7 +18,7 @@ export interface IProductDetails {
     name: string,
     img: string,
     desc: string,
-    ingredients: [IIngredient],
+    ingredients: IIngredient[],
     price: number,
     veg: boolean,
     weight: number,
@@ -24,12 +26,18 @@ export interface IProductDetails {
 }
 
 export interface IBurgerContent {
-    burgerList: [IProduct],
+    burgerList: IProduct[],
     catalogTitle: string,
-    getBurgers: () => void
+    getBurgers: () => void,
+    getBurger: (id: number) => void
 }
 export interface IPizzaContent {
-    pizzaList: [IProduct],
+    pizzaList: IProduct[],
     catalogTitle: string,
-    getPizza: () => void
+    getPizzaList: () => void,
+    getPizza: (id: number) => void
+}
+export interface IProductCartContent {
+    isFetching: boolean,
+    currentProduct: IProductDetails
 }

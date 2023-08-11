@@ -1,12 +1,21 @@
+import { useNavigate } from 'react-router-dom';
 
 import { IProduct } from '../../interfaces/food-interface';
 import s from './burger-item.module.css';
 
-const ProductItem = ({ name, img, price, weight, unit }: IProduct) => {
+const ProductItem = ({ id, name, img, price, weight, unit, catalogTitle, getProduct }: IProduct) => {
+    const navigate = useNavigate();
+    const handleClick = () => navigate(`/${catalogTitle}/product/${name.trim()}`);
+
+    const requestProductData = () => {
+        getProduct(id);
+        handleClick();
+    }
+
     return (
-        <li className="catalog_item">
-            <article className={s.product}>
-                <img src={img} alt="product image" className={s.productImg} />
+        <li id={`catalog_item-${id}`} className={`catalog_item`}>
+            <article className={`${s.product}`} >
+                <img src={img} alt="product image" className={`${s.productImg}`} />
                 <p className={s.producPrice}>
                     {price}
                     <span className="currency">$</span>
@@ -17,7 +26,7 @@ const ProductItem = ({ name, img, price, weight, unit }: IProduct) => {
                     </button>
                 </h3>
                 <p className={s.productWeight}>{weight}{unit}</p>
-                <button className={s.productAdd}>
+                <button className={s.productAdd} onClick={requestProductData}>
                     Add
                 </button>
             </article>

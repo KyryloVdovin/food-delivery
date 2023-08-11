@@ -5,10 +5,11 @@ import Navigation from './components/navigation/navigation';
 import { Route, Routes } from "react-router-dom";
 import BurgerContainer from './components/burger/burger-container';
 import PizzaContainer from './components/pizza/pizza-container';
+import ProductCartContainer from './components/product-cart/product-cart-container';
 
 const App = (props) => {
-  return (
 
+  return (
     <div className="App">
       <Header />
 
@@ -26,6 +27,7 @@ const App = (props) => {
               <Route path="/Sandviches" element={<div>sandvich</div>} />
               <Route path="/Ice-cream" element={<div>ice cream</div>} />
               <Route path="/Steak" element={<div>steak</div>} />
+              <Route path="/:category/product/:title" element={<ProductCartContainer />} />
             </Routes>
           </div>
         </section>

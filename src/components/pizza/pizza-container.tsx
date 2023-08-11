@@ -1,7 +1,7 @@
 import PizzaContent from './pizza-content';
 import { connect } from "react-redux";
-import IPizzaRootState from '../interfaces/burger-container-root-state';
-import { getPizza } from '../redux/pizza-reducer';
+import { IPizzaRootState } from '../interfaces/burger-container-root-state';
+import { getPizzaList, getPizza } from '../redux/pizza-reducer';
 
 const mapStateToProps = (state: IPizzaRootState) => {
     return {
@@ -10,6 +10,6 @@ const mapStateToProps = (state: IPizzaRootState) => {
     }
 }
 
-const PizzaContainer = connect(mapStateToProps, {getPizza})(PizzaContent);
+const PizzaContainer = connect(mapStateToProps, { getPizzaList, getPizza })(PizzaContent);
 
 export default PizzaContainer;

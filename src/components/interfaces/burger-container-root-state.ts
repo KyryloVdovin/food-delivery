@@ -1,14 +1,22 @@
-import { IProduct } from "../../interfaces/food-interface"
+import { IProduct, IProductDetails } from "../../interfaces/food-interface"
 
-export default interface IBurgerRootState {
+export interface IBurgerRootState extends IProductCartRootState {
     burgersPage: {
         burgerList: [IProduct],
-        catalogTitle: string
+        catalogTitle: string,
+        currentProduct: IProductDetails,
+        isFetching: boolean
     }
 }
-export default interface IPizzaRootState {
+export interface IPizzaRootState {
     pizzaPage: {
         pizzaList: [IProduct],
         catalogTitle: string
+    }
+}
+export interface IProductCartRootState {
+    burgersPage: {
+        currentProduct: IProductDetails,
+        isFetching: boolean
     }
 }

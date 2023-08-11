@@ -3,14 +3,15 @@ import BurgerItem from '../burger/burger-item';
 import { IPizzaContent } from '../../interfaces/food-interface';
 import '../burger/burger-content.css';
 
-const PizzaContent = ({ pizzaList, catalogTitle, getPizza }: IPizzaContent) => {
+const PizzaContent = ({ pizzaList, catalogTitle, getPizzaList, getPizza }: IPizzaContent) => {
     useEffect(() => {
-        getPizza();
+        getPizzaList();
     }, []);
 
     const foodList = pizzaList.map(item => {
         return <BurgerItem key={item.id} id={item.id} name={item.name} img={item.img}
-        price={item.price} weight={item.weight} unit={item.unit}/>
+        price={item.price} weight={item.weight} unit={item.unit} catalogTitle={catalogTitle}
+        getProduct={getPizza}/>
     });
 
     return (
