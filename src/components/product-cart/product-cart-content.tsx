@@ -1,5 +1,4 @@
 import { IProductCartContent } from '../../interfaces/food-interface';
-// import '../burger/burger-content.css';
 import ProductCart from "./product-cart";
 import Loading from '../loading/loading';
 

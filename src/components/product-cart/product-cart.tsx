@@ -20,25 +20,32 @@ const ProductCart = ({ id, name, img, desc, ingredients, price, weight, unit }: 
         handleClickScroll();
     }
 
+    const ingredientList = ingredients.map(ing => {
+        return <li>{ing.name}</li>
+    });
+
     return (
         <div className='product-cart'>
             <h2>{name}</h2>
             <img src={img} />
-            <p>{desc}</p>
+            <p className='product-cart-desc'>{desc}</p>
+            <p className='ingredients'>Ingredients:</p>
             <ul>
-                <li>123</li>
-                <li>123</li>
-                <li>123</li>
+                {ingredientList}
             </ul>
-            <p>250</p>
-            <div>
-                <button onClick={handleClick}>close</button>
-                <div>
+            <p className='weight'>{weight}{unit}</p>
+            <div className='btn-close-container'>
+                <button className='btn-close' onClick={handleClick}></button>
+            </div>
+            <div className='buttons'>
+                <button className='btn-add'>Add</button>
+                <div className='plus-minus'>
                     <button>+</button>
                     <span>1</span>
                     <button>-</button>
                 </div>
             </div>
+            <p className='price'>{price}$</p>
         </div>
     )
 }
