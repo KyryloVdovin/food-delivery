@@ -10,7 +10,7 @@ export interface IProduct {
     weight: number,
     unit: string,
     catalogTitle: string,
-    getProduct: (id: number) => void
+    getProduct: (category: string, id: number) => void
 }
 
 export interface IProductDetails {
@@ -28,16 +28,21 @@ export interface IProductDetails {
 export interface IBurgerContent {
     burgerList: IProduct[],
     catalogTitle: string,
+    isFetching: boolean,
     getBurgers: () => void,
-    getBurger: (id: number) => void
+    getProduct: (category: string, id: number) => void
 }
 export interface IPizzaContent {
     pizzaList: IProduct[],
     catalogTitle: string,
+    isFetching: boolean,
     getPizzaList: () => void,
-    getPizza: (id: number) => void
+    getProduct: (category: string, id: number) => void
 }
 export interface IProductCartContent {
     isFetching: boolean,
     currentProduct: IProductDetails
+}
+export interface ICatalogTitle {
+    catalogTitle: string
 }

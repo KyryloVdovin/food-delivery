@@ -3,8 +3,8 @@ import './product-cart.css';
 import { IProductDetails } from '../../interfaces/food-interface';
 
 const ProductCart = ({ id, name, img, desc, ingredients, price, weight, unit }: IProductDetails) => {
-    const { title, category } = useParams();
-    // console.log(id)
+    const { category } = useParams();
+
     const navigate = useNavigate();
     const handleClickScroll = () => {
         setTimeout(function () {
@@ -21,7 +21,7 @@ const ProductCart = ({ id, name, img, desc, ingredients, price, weight, unit }: 
     }
 
     const ingredientList = ingredients.map(ing => {
-        return <li>{ing.name}</li>
+        return <li key={ing.id}>{ing.name}</li>
     });
 
     return (

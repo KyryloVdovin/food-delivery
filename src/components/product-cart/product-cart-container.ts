@@ -4,8 +4,8 @@ import { IProductCartRootState } from '../interfaces/burger-container-root-state
 
 const mapStateToProps = (state: IProductCartRootState) => {
     return {
-        currentProduct: state.burgersPage.currentProduct,
-        isFetching: state.burgersPage.isFetching
+        currentProduct: state.productCartPage.currentProduct,
+        isFetching: state.productCartPage.isFetching
     }
 }
 

@@ -14,7 +14,6 @@
 
 .product-cart h2 {
     font-size: 28px;
-    font-weight: 600;
     line-height: 120%;
 
     width: 75%;
@@ -35,6 +34,10 @@
     font-size: 12px;
     line-height: 130%;
     margin-bottom: 12px;
+}
+
+.product-cart .ingredients {
+    font-family: NunitoBold;
 }
 
 .product-cart ul {
@@ -125,7 +128,8 @@
 .product-cart .price {
     text-align: right;
     font-size: 16px;
-    font-weight: 600;
     line-height: 130%;
     margin-bottom: 50px;
+
+    font-family: NunitoBold;
 }

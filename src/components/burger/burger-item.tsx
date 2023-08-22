@@ -6,9 +6,9 @@ import s from './burger-item.module.css';
 const ProductItem = ({ id, name, img, price, weight, unit, catalogTitle, getProduct }: IProduct) => {
     const navigate = useNavigate();
     const handleClick = () => navigate(`/${catalogTitle}/product/${name.trim()}`);
-
+// console.log(catalogTitle);
     const requestProductData = () => {
-        getProduct(id);
+        getProduct(catalogTitle.toLocaleLowerCase(), id);
         handleClick();
     }
 

@@ -6,14 +6,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, 145px);
     gap: 10px;
-
-    /* justify-content: center; */
 }
 
-.catalog-title {
-    font-weight: 600;
-    font-size: 28px;
-    line-height: 120%;
-    margin-bottom: 16px;
-    text-align: left;
+.catalog_list li {
+    display: flex;
 }

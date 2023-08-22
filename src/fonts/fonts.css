@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'NunitoRegular';
+    src: local('NunitoRegular'),
+         url('./Nunito-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'NunitoSemiBold';
+    src: local('NunitoSemiBold'),
+         url('./Nunito-SemiBold.woff') format('woff');
+}
+@font-face {
+    font-family: 'NunitoBold';
+    src: local('NunitoBold'),
+         url('./Nunito-Bold.woff') format('woff');
+}

@@ -10,14 +10,19 @@ export const foodAPI = {
             return response;
         })
     },
-    getBurger(burgerId: number) {
-        return foodApiInstance(`burgers/${burgerId}`).then(response => {
+    getProduct(category: string, productId: number) {
+        return foodApiInstance(`${category}/${productId}`).then(response => {
             return response;
         })
     },
-    getPizza() {
+    getPizzaList() {
         return foodApiInstance('pizza').then(response => {
             return response;
         })
     },
+    // getPizza(pizzaId: number) {
+    //     return foodApiInstance(`pizza/${pizzaId}`).then(response => {
+    //         return response;
+    //     })
+    // },
 }

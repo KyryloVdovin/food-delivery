@@ -1,24 +1,27 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import BurgerItem from './burger-item';
 import { IBurgerContent } from '../../interfaces/food-interface';
 import './burger-content.css';
+import CatalogTitle from '../general-conponents/catalog-title';
+import Loading from '../loading/loading';
 
-const BurgerContent = ({ burgerList, catalogTitle, getBurgers, getBurger }: IBurgerContent) => {
+const BurgerContent = ({ burgerList, catalogTitle, isFetching, getBurgers, getProduct }: IBurgerContent) => {
     useEffect(() => {
         getBurgers();
     }, []);
 
     const foodList = burgerList.map(item => {
         return <BurgerItem key={item.id} id={item.id} name={item.name} img={item.img}
-            price={item.price} weight={item.weight} unit={item.unit} catalogTitle={catalogTitle} 
-            getProduct={getBurger}/>
+            price={item.price} weight={item.weight} unit={item.unit} catalogTitle={catalogTitle}
+            getProduct={getProduct} />
     });
-
+ 
     return (
         <div className="catalog_wrap_list">
-            <h2 className='catalog-title'>{catalogTitle}</h2>
+            <CatalogTitle catalogTitle={catalogTitle} />
+            {isFetching && <Loading />}
             <ul className="catalog_list">
-                {foodList}
+                {!isFetching && foodList}
             </ul>
         </div>
     )

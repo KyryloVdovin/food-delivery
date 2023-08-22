@@ -4,18 +4,18 @@ export interface IBurgerRootState extends IProductCartRootState {
     burgersPage: {
         burgerList: [IProduct],
         catalogTitle: string,
-        currentProduct: IProductDetails,
         isFetching: boolean
     }
 }
-export interface IPizzaRootState {
+export interface IPizzaRootState extends IProductCartRootState{
     pizzaPage: {
         pizzaList: [IProduct],
-        catalogTitle: string
+        catalogTitle: string,
+        isFetching: boolean
     }
 }
 export interface IProductCartRootState {
-    burgersPage: {
+    productCartPage: {
         currentProduct: IProductDetails,
         isFetching: boolean
     }

@@ -13,7 +13,7 @@ const ProductContent = ({ isFetching, currentProduct }: IProductCartContent) => 
         <>
             {isFetching && <Loading />}
 
-            {!isFetching && currentProduct && <ProductCart id={currentProduct.id} name={currentProduct.name}
+            {!isFetching && currentProduct && <ProductCart key={currentProduct.id} id={currentProduct.id} name={currentProduct.name}
                 desc={currentProduct.desc} img={currentProduct.img} ingredients={currentProduct.ingredients}
                 price={currentProduct.price} veg={currentProduct.veg} weight={currentProduct.weight} unit={currentProduct.unit} />}
         </>
