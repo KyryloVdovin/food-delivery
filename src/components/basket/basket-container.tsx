@@ -1,4 +1,4 @@
-import BurgerContent from './burger-content';
+import Basket from "./basket";
 import { connect } from "react-redux";
 import { IBurgerRootState } from '../interfaces/burger-container-root-state';
 import { getBurgers, setClickedItemId } from '../redux/burger-reducer';
@@ -13,6 +13,6 @@ const mapStateToProps = (state: IBurgerRootState) => {
     }
 }
 
-const BurgerContainer = connect(mapStateToProps, { getBurgers, getProduct, setClickedItemId })(BurgerContent);
+const BasketContainer = connect(mapStateToProps, { })(Basket);
 
-export default BurgerContainer;
+export default BasketContainer;

@@ -6,15 +6,18 @@ import { Route, Routes } from "react-router-dom";
 import BurgerContainer from './components/burger/burger-container';
 import PizzaContainer from './components/pizza/pizza-container';
 import ProductCartContainer from './components/product-cart/product-cart-container';
+import Footer from './components/footer/footer';
+import CopyRight from './components/footer/copy-right';
+import BasketContainer from './components/basket/basket-container';
 
 const App = (props) => {
-
   return (
     <div className="App">
       <Header />
 
       <main>
         <Navigation />
+        <BasketContainer />
         <section className='catalog'>
           <div className='container catalog-container'>
             <Routes>
@@ -32,6 +35,8 @@ const App = (props) => {
           </div>
         </section>
       </main>
+      <Footer />
+      <CopyRight />
     </div>
   );
 }

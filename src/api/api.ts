@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const foodApiInstance = axios.create({
-    baseURL: 'https://apimocha.com/kirill-food-delivery/'
+    // baseURL: 'https://apimocha.com/kirill-food-delivery/'
 });
 
 export const foodAPI = {

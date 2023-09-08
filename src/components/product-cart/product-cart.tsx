@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import './product-cart.css';
 import { IProductDetails } from '../../interfaces/food-interface';
+import ChangeItemsCount from '../general-conponents/change-items-count';
 
 const ProductCart = ({ id, name, img, desc, ingredients, price, weight, unit }: IProductDetails) => {
     const { category } = useParams();
@@ -8,7 +9,7 @@ const ProductCart = ({ id, name, img, desc, ingredients, price, weight, unit }: 
     const navigate = useNavigate();
     const handleClickScroll = () => {
         setTimeout(function () {
-            const element = document.getElementById(`catalog_item-${id}`);
+            const element = document.getElementById(`catalog_item-${5}`);
 
             if (element) {
                 element.scrollIntoView({ behavior: 'smooth' });

@@ -6,18 +6,19 @@ import { AnyAction } from 'redux'
 const GET_PIZZA_LIST = 'GET_PIZZA_LIST';
 const GET_PIZZA = 'GET_PIZZA';
 const IS_FETCHING = 'IS_FETCHING';
+const SET_CLICKED_ITEM_ID = 'SET_CLICKED_ITEM_ID';
 
 const initialState = {
     pizzaList: [],
     catalogTitle: 'Pizza',
-    currentProduct: null,
-    isFetching: false
+    isFetching: false,
+    clickedProductId: 0
 }
 
 type ACTION_TYPE =
     | { type: 'GET_PIZZA_LIST', pizza: [IProduct] }
-    | { type: 'GET_PIZZA', currentProduct: IProductDetails }
     | { type: 'IS_FETCHING', isFetching: boolean }
+    | { type: 'SET_CLICKED_ITEM_ID', id: number }
 
 const pizzaContentReducer = (state = initialState, action: ACTION_TYPE) => {
     switch (action.type) {
@@ -26,15 +27,15 @@ const pizzaContentReducer = (state = initialState, action: ACTION_TYPE) => {
                 ...state,
                 pizzaList: action.pizza
             }
-        case GET_PIZZA:
-            return {
-                ...state,
-                currentProduct: action.currentProduct
-            }
         case IS_FETCHING:
             return {
                 ...state,
                 isFetching: action.isFetching
+            }
+        case SET_CLICKED_ITEM_ID:
+            return {
+                ...state,
+                clickedProductId: action.id
             }
         default:
             return state;
@@ -47,12 +48,6 @@ const getPizzaListData = (pizza: [IProduct]) => {
         pizza
     }
 };
-const getPizzaData = (pizza: IProduct) => {
-    return {
-        type: GET_PIZZA,
-        pizza
-    }
-};
 
 const setIsFetching = (isFetching: boolean) => {
     return {
@@ -61,25 +56,27 @@ const setIsFetching = (isFetching: boolean) => {
     }
 };
 
+export const setClickedItemId = (id: number) => {
+    return {
+        type: SET_CLICKED_ITEM_ID,
+        id
+    }
+};
+
 export const getPizzaList = (): ThunkAction<void, {}, unknown, AnyAction> =>
     async (dispatch) => {
-        dispatch(setIsFetching(true));
-        let response = await foodAPI.getPizzaList();
+        try {
+            dispatch(setIsFetching(true));
+            let response = await foodAPI.getPizzaList();
 
-        if (response.status === 200) {
-            dispatch(getPizzaListData(response.data.pizza));
-            dispatch(setIsFetching(false));
+            if (response.status === 200) {
+                dispatch(getPizzaListData(response.data.pizza));
+                dispatch(setIsFetching(false));
+            }
+        }
+        catch (err) {
+            console.log(err);
         }
     }
-// export const getPizza = (id: number): ThunkAction<void, {}, unknown, AnyAction> =>
-//     async (dispatch) => {
-//         dispatch(setIsFetching(true));
-//         let response = await foodAPI.getProduct(id);
-
-//         if (response.status === 200) {
-//             dispatch(getPizzaData(response.data));
-//             dispatch(setIsFetching(false));
-//         }
-//     }
 
 export default pizzaContentReducer;

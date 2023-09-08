@@ -5,7 +5,7 @@ import '../burger/burger-content.css';
 import CatalogTitle from '../general-conponents/catalog-title';
 import Loading from '../loading/loading';
 
-const PizzaContent = ({ pizzaList, catalogTitle, isFetching, getPizzaList, getProduct }: IPizzaContent) => {
+const PizzaContent = ({ pizzaList, catalogTitle, isFetching, currentProduct, getPizzaList, getProduct, setClickedItemId }: IPizzaContent) => {
     useEffect(() => {
         getPizzaList();
     }, []);
@@ -13,7 +13,7 @@ const PizzaContent = ({ pizzaList, catalogTitle, isFetching, getPizzaList, getPr
     const foodList = pizzaList.map(item => {
         return <BurgerItem key={item.id} id={item.id} name={item.name} img={item.img}
             price={item.price} weight={item.weight} unit={item.unit} catalogTitle={catalogTitle}
-            getProduct={getProduct} />
+            clickedItemId={currentProduct?.id} getProduct={getProduct} setClickedItemId={setClickedItemId}/>
     });
 
     return (

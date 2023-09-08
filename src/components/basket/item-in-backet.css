@@ -1,0 +1,41 @@
+.item-in_basket {
+    display: flex;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #F2F2F3;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+}
+
+.left-section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-section .img {
+    height: 52px;
+    width: 64px;
+    background-color: black;
+    border-radius: 8px;
+}
+
+.info {
+    text-align: left;
+    font-size: 12px;
+    line-height: 15px;
+    margin-left: 6px;
+}
+
+.info p:nth-child(1) {
+    margin-bottom: 2px;
+}
+
+.info p:nth-child(2) {
+    margin-bottom: 6px;
+    color: #B1B1B1;
+}
+
+.right-section {
+    display: flex;
+    align-items: center;
+}

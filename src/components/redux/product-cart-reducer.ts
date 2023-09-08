@@ -49,14 +49,20 @@ export const setIsFetching = (isFetching: boolean) => {
 
 export const getProduct = (category: string, id: number): ThunkAction<void, {}, unknown, AnyAction> =>
     async (dispatch) => {
-        dispatch(setIsFetching(true));
+        try {
+            dispatch(setIsFetching(true));
 
-        let response = await foodAPI.getProduct(category, id);
+            let response = await foodAPI.getProduct(category, id);
 
-        if (response.status === 200) {
-            dispatch(getBurgerData(response.data));
-            dispatch(setIsFetching(false));
+            if (response.status === 200) {
+                dispatch(getBurgerData(response.data));
+                dispatch(setIsFetching(false));
+            }
         }
+        catch (err) {
+            console.log(err);
+        }
+
     }
 
 export default productCartReducer;
